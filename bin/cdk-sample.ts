@@ -1,6 +1,9 @@
 #!/usr/bin/env node
-import * as cdk from 'aws-cdk-lib';
-import { CdkSampleStack } from '../lib/cdk-sample-stack';
+import { App } from 'aws-cdk-lib';
+import { GuardDutyIpSetStack } from '../lib/guardduty-ipset';
 
-const app = new cdk.App();
-new CdkSampleStack(app, 'CdkSampleStack');
+const app = new App();
+
+new GuardDutyIpSetStack(app, 'GuardDutyIpSetStack', {
+  env: { region: 'ap-northeast-1' },
+});
